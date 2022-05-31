@@ -15,6 +15,8 @@ import {
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import NotFound from "./pages/NotFound"; 
+
 
 // import PostDetails from "./pages/PostDetails";
 // import { useDispatch, useSelector } from "react-redux";
@@ -59,7 +61,7 @@ function App() {
           
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Home />} />
-            <Route path="*" component={NotFound} />            
+            <Route path="*" element={<NotFound />} />            
             
           
         
@@ -74,9 +76,9 @@ function App() {
       </Layout>
     </Router>
   );
-  function NotFound() {
-    return <>Ha llegado a una página que no existe</>;
-  }
+  // function NotFound() {
+  //   return <>Ha llegado a una página que no existe</>;
+  // }
 }
 
 export default App;

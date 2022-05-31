@@ -1,14 +1,19 @@
 import axios from "axios";
 
 
-// export const getLastPost = async (postData) => {
-//     try {
-//       const { data } = await axios.post("http://localhost:8000/api/user/1/last_post", postData);
-//       return data;
-//     } catch (error) {
-//       alert("Something went wrong.");
-//     }
-//   };
+export const getLastPost = async (postData) => {
+    try {
+      let config = {
+        headers: {
+          'Authorization': 'Bearer ' + "28|NdNI2iRA4T4lbPBhlWTZ49YG1DjGllqlvcqgAr2A"
+        }
+      }
+      const { data } = await axios.get("http://localhost:8000/api/user/1/last_post", config);
+      return data;
+    } catch (error) {
+      alert("Something went wrong.");
+    }
+  };
 
 export const addPost = async (postData) => {
   try {

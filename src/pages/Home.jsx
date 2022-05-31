@@ -9,7 +9,7 @@ import { LocalConvenienceStoreOutlined } from "@mui/icons-material";
 // import { getPosts } from "../redux/postSlice";
 // import AddPost from "../components/AddPost";
 
-export default async function Home() {
+export default  function Home() {
   // const dispatch = useDispatch();
   // const { status, posts } = useSelector((state) => state.post);
   // useEffect(() => {
@@ -17,18 +17,19 @@ export default async function Home() {
   // }, [dispatch]);
 
   
-  // const getPost = async ()=>{
-  //   let data = await getLastPost();
-  //   if(data) console.log(data);
-  // }
+  const getPost = async ()=>{
+    let data = await getLastPost();
+    if(data) console.log(data);
+  }
 
-  // useEffect(()=>{
-  //   getPost();
-  //   console.log("hola")
-  // },[])
+  useEffect(()=>{
+    getPost();
+    console.log("hola")
+  },[])
 
   return (
-    <Box>
+    <>
+      <Box>
       <Box borderBottom="1px solid #ccc" padding="8px 20px">
         <Grid container justifyContent="space-between" alignItems="center">
           <Grid item>
@@ -51,6 +52,10 @@ export default async function Home() {
         {/* {status === "success" &&
           posts.map((post) => <Post key={post._id} post={post} />)} */}
       </Box>
-    </Box>
+    </Box>    
+    </>
   );
 }
+
+
+

@@ -22,8 +22,17 @@ export default  function Home() {
     if(data) console.log(data);
   }
 
+  const fetchPost = async ()=>{
+    let data = fetch("http://localhost:8000/api/user/1/last_post")
+    .then(response => response.json())
+    .then(response => console.log(response))
+
+    // if(data) console.log(data);
+
+  } 
   useEffect(()=>{
     getPost();
+    //fetchPost();
     console.log("hola")
   },[])
 

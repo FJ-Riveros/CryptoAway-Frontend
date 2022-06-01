@@ -1,8 +1,9 @@
 import { CircularProgress, Grid, IconButton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import axios from "axios";
 import AssistantIcon from "@mui/icons-material/Assistant";
+import { login } from "../api";
 // import Post from "../components/Post";
 // import { useDispatch, useSelector } from "react-redux";
 // import { getPosts } from "../redux/postSlice";
@@ -15,12 +16,28 @@ export default function Login() {
   //   // dispatch(getPosts());
   // }, [dispatch]);
 
-//   axios.get('http://localhost:8000/sanctum/csrf-cookie').then(response => {
-//     // Login...
-//     console.log("hola");
-//     console.log(response);
-//     });
+  const prueba = async ()=>{
+    // axios.get('http://localhost:8000/sanctum/csrf-cookie').then(response => {
+    // // Login...
+    // console.log("hola");
+    // console.log(response.json());
+    // });
+
+    let data = await fetch("http://localhost:8000/sanctum/csrf-cookie")
+    // .then(response => response.json())
+    .then(response => console.log(response))
+  }
+  
+
+
+
+// useEffect(()=>{
+//   login();
+//   // prueba();
+// },[]);
+
   return (
+    <div className="row mb-3">
     <form method="post" action="http://localhost:8000/login">
       {/* <input type="hidden" name="_token" value="yJj6Ve5XbpsrStp9Erui3ZrBO82Xuqzs5jEWrR15" /> */}
 
@@ -87,6 +104,11 @@ export default function Login() {
           </a>
         </div>
       </div>
-    </form>
+      </form>
+      <button className="btn btn-primary" onClick={()=>login()}>
+            Prueba
+          </button>
+    </div>
+    
   );
 }

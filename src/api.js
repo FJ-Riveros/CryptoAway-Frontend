@@ -1,19 +1,64 @@
 import axios from "axios";
 
 
+const url = "http://localhost:8000";
+
+
 export const getLastPost = async (postData) => {
     try {
       let config = {
         headers: {
-          'Authorization': 'Bearer ' + "28|NdNI2iRA4T4lbPBhlWTZ49YG1DjGllqlvcqgAr2A"
+          'Authorization': 'Bearer ' + "293|2fL9bpVOr04hRrhCICT5xvcP5bRk53d7LaJUYLsx"
         }
       }
-      const { data } = await axios.get("http://localhost:8000/api/user/1/last_post", config);
+      const { data } = await axios.get("http://localhost:8000/api/user/1/last_post");
       return data;
     } catch (error) {
       alert("Something went wrong.");
     }
   };
+
+
+export const login = async (credentials) => {
+  try {
+
+    // const { data } = await axios.post(`${url}/login`, {
+      let config = {
+        headers: {
+          'X-CSRF-TOKEN': "MRGVc7hWoQYOe9Z6Jg8RgDMNtwRNKKFQBl0aTo4N"
+        }
+      }
+      axios.post(`${url}/api/login`, {
+      email: "juan@gmail.com",
+      password: "123",
+      _token: "MRGVc7hWoQYOe9Z6Jg8RgDMNtwRNKKFQBl0aTo4N" 
+      }, config)
+      .then( response=> console.log(response))
+        
+      // var formdata = new FormData();
+      // formdata.append("email", "juan@gmail.com");
+      // formdata.append("password", "123");
+      
+      // var requestOptions = {
+      //   method: 'POST',
+      //   body: formdata,
+      //   redirect: 'follow'
+      // };
+      
+      // fetch("http://127.0.0.1:8000/api/login", requestOptions)
+      //   .then(response => response.text())
+      //   .then(result => console.log(result))
+      //   .catch(error => console.log('error', error));
+
+      
+    // console.log(data);
+    // return data;
+  } catch (error) {
+    alert("Something went wrong.");
+  }
+};
+
+  
 
 export const addPost = async (postData) => {
   try {
